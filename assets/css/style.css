@@ -1,0 +1,11 @@
+.vermelha{
+    min-height: 300px;
+    background-image: linear-gradient(red, darkred);
+    box-shadow: 2px 2px 4px blue;
+}
+.vermelha:hover{
+    min-height: 400px;
+    background-image: linear-gradient(darkred, red);
+    transition-duration: 1s;
+    box-shadow: 6px 6px 6px rgb(24, 119, 32);
+}
