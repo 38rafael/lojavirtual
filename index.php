@@ -1,4 +1,13 @@
 <?php require_once 'views/conecta.php'; ?>
+
+<?php 
+
+$informacao = "SELECT * FROM produtos";
+$query      = mysqli_query($con, $informacao);
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -30,9 +39,24 @@
       </ul>
     </div>
   </nav>
-  
+  <div class="container">
+    <div class="row">
+      <?php while ($resultado = mysqli_fetch_array($query)) {
+        ?>
 
-  <h1>loja aqui.</h1>
+        <div class="card" style="width: 16rem; margin: 5px;">
+          <img width="50" height="200" src="assets/<?php echo $resultado['imagem'] ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $resultado['nome'] ?></h5>
+            <p class="card-text"><?php echo $resultado['descricao'] ?></p>
+            <a href="#" class="btn btn-primary">Saiba Mais</a>
+          </div>
+        </div>
+        <?php
+      } ?>
+    </div>
+
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

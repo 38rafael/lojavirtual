@@ -1,3 +1,10 @@
+<?php 
+require_once 'conecta.php';
+session_start();
+	$buscaproduto = "SELECT * FROM produtos";
+	$query        = mysqli_query($con, $buscaproduto );
+	
+ ?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -45,14 +52,31 @@
         </ul>
       </div>
     <div class="col-md-6">
-		<form class="form-group" action="inserirproduto.php" method="post" enctype="multipart/form-data">
-			<label>Nome:</label>
-			<input class="form-control" type="text" name="nome">
-			<label>Descrição:</label>	
-			<textarea class="form-control" name="descricao"></textarea>
-			<input id="upload" type="file" name="imagem"/>
-			<button class="btn btn-success">Enviar</button>
-		</form>
+		
+		<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Imagem</th>
+      <th scope="col">Atualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<?php while($info= mysqli_fetch_array($query)){
+  		?>
+  	<tr>
+      <th scope="row"><?php echo $info['id']; ?></th>
+      <td><?php echo $info['nome']; ?></td>
+      <td><?php echo $info['descricao']; ?></td>
+      <td><img width="100" height="100" src="<?php echo $info['imagem']; ?>"></td>
+      <td><a href="atualiza.php?id=<?php echo $info['id'] ?>"><img width="50" height="50" src="../assets/imagens/atualiza.png"></a></td>
+    </tr>
+    <?php
+  }?>
+  </tbody>
+</table>
     </div>
     
     </div>

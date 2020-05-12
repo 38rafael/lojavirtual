@@ -37,11 +37,17 @@ session_start();
     <div class="row">
       <div class="col-md-3" style="min-height: calc(100vh - 50px); background-color: lightblue;">
         <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" style="color: #333; margin-top: 10px;" href="arearestrita.php">Área Restrita</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link" style="color: #333; margin-top: 10px;" href="cadastraproduto.php">Cadastrar Novo Produto</a>
           </li>
         <li class="nav-item">
           <a class="nav-link" style="color: #333; margin-top: 10px;" href="deletaproduto.php">Deleta Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #333; margin-top: 10px;" href="atualizaproduto.php">Atualizar Produtos</a>
         </li>
         </ul>
       </div>
