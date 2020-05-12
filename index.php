@@ -1,5 +1,6 @@
+<?php require_once 'views/conecta.php'; ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -24,11 +25,14 @@
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="views/login.php">Login</a>
         </li>
       </ul>
     </div>
   </nav>
+  
+
+  <h1>loja aqui.</h1>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

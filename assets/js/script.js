@@ -1,0 +1,1 @@
+document.getElementById('upload').value ='UPLOAD DA IMAGEM';

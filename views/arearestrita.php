@@ -1,19 +1,8 @@
-<?php require_once 'conecta.php';
-
-  if (isset($_POST['admin'])) {
-    $admin = $_POST['admin'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $seleciona = "SELECT * FROM admin";
-    $query = mysqli_query($con, $seleciona);
-    $consulta = mysqli_fetch_assoc($query);
-    if (!is_null($query)) {
-      session_start();
-      $_SESSION['admin'] = $_POST['admin'];
-      header("Location:arearestrita.php");
-    }
-  }
+<?php require_once 'conecta.php'; 
+session_start();
+if (!isset($_SESSION['admin'])) {
+  header("Location:login.php");
+}
 
 
 ?>
@@ -39,25 +28,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="../index.php">Home</a>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">logout</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container">
-    <div>
-      <form class="form-group" action="login.php" method="post">
-        <label>Admin:</label>
-        <input class="form-control" type="text" name="admin" placeholder="Seu admin">
-        <label>E-mail:</label>
-        <input class="form-control" type="email" name="email" placeholder="E-mail">
-        <label>Senha:</label>
-        <input class="form-control" type="password" name="senha" placeholder="Senha"><br>
-        <button class="btn btn-primary">Enviar</button>
-      </form>
-    </div>    
-  </div>
+    <div class="row" style="min-height: 100vh;">
+      <div class="col-md-3" style="min-height: calc(100vh - 50px); background-color: lightblue;">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" style="color: #333; margin-top: 10px;" href="cadastraproduto.php">Cadastrar Novo Produto</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #333; margin-top: 10px;" href="deletaproduto.php">Deleta Produtos</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+      </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
